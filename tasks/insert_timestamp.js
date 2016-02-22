@@ -16,7 +16,6 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('insert_timestamp', 'Insert a timestamp into a file.', function() {
     // Helper modules
     var stringTemplate = require('string-template');
-    var fs = require('fs');
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
