@@ -122,6 +122,14 @@ Default value: `new Date()`
 
 The datetime that will be output as a timestamp in the file. This must be passed via the constructor `new Date(foo)`, where `foo` is any of the parameters accepted by the [built-in Date constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date).
 
+#### options.datetimefunc
+Type: `function`
+Default value: `null`
+
+An optional function that returns a Date object.  This is an alternative to the datetime option (which declares a single Date object directly.)  Each file (or list of files to be concatenated) is passed in as an array, as the first argument.
+
+If no datetimefunc option is specified, the datetime option (or its default) is used instead.
+
 #### options.insertNewlines
 Type: `Boolean`
 Default value: `true`
