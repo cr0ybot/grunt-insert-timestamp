@@ -126,7 +126,26 @@ The datetime that will be output as a timestamp in the file. This must be passed
 Type: `function`
 Default value: `null`
 
-An optional function that returns a Date object.  This is an alternative to the datetime option (which declares a single Date object directly.)  Each file (or list of files to be concatenated) is passed in as an array, as the first argument.
+An optional function that returns a Date object.  This is an alternative to the datetime option (which declares a single Date object directly.)  The function is called once for each file (or list of files to be concatenated) given to the module.  Example usage:
+
+```js
+options: {
+    datetimefunc: function (fileList) {
+      var fs = require('fs');
+      var mostRecentMTime = 0;
+      // Find the most recently modified timestamp of specified files
+      fileList.forEach(function(filepath) {
+        statsObj = fs.statSync(filepath);
+        mTime = statsObj.mtime.getTime();
+        if (mTime > mostRecentMTime) { mostRecentMTime = mTime }
+      });
+      return new Date(mostRecentMTime);
+    },
+    format: false,
+    template: '// Last modified on: {timestamp}  ',
+    insertNewlines: true
+},
+```
 
 If no datetimefunc option is specified, the datetime option (or its default) is used instead.
 
