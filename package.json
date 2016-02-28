@@ -1,7 +1,7 @@
 {
   "name": "grunt-insert-timestamp",
   "description": "Insert a timestamp into a file.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/cr0ybot/grunt-insert-timestamp",
   "author": {
     "name": "Cory Hughart",
